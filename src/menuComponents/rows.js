@@ -28,7 +28,7 @@ export default function MenuRow({kind, text}){
 
   function JSXifyMenuItem({item:{imgsrc, imgalt, name, description, price, key}, index}){
     return (
-      <article  onClick={(e)=>handleItemClick(e)} key={key} className="menu-item">
+      <article  onClick={(event)=>handleItemClick(event)} key={key} className="menu-item">
         <div className="item-wrapper">
           <img src={imgsrc} alt={imgalt} />
           <h3>{name}</h3>
@@ -58,8 +58,8 @@ export default function MenuRow({kind, text}){
   );
 }
 
-function handleItemClick(e){
-  let currentArticle = e.target;
+function handleItemClick(event){
+  let currentArticle = event.target;
   while (currentArticle.tagName !== 'ARTICLE'){
     currentArticle = currentArticle.parentNode;
   }
