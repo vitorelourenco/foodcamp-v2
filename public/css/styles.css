@@ -83,9 +83,20 @@ section h2 {
   font-family: var(--ff-roboto);
   border: 5px solid white;
   padding: 14px 10px;
-  cursor: pointer;
   margin: 10px;
   flex-shrink: 0;
+}
+
+.menu-item:not(.selected){
+  cursor: pointer;
+}
+
+:not(.selected) .order-controls{
+  display: none;
+}
+
+.selected .order-controls{
+  display: initial;
 }
 
 .item-wrapper {
@@ -134,6 +145,31 @@ section h2 {
   line-height: 19px;
   font-weight: normal;
 }
+
+.upButton,
+.downButton{
+  background-color: white;
+  border: none;
+  height: 19px;
+  line-height: 19px;
+  font-size: 16px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.upButton{
+  color: var(--green);
+  text-align: end;
+  width: 15px;
+}
+
+.downButton{
+  width: 30px;
+  padding-left: 15px;
+  text-align: start;
+  color: var(--red);
+}
+
 
 .checked {
   font-size: 19px;
