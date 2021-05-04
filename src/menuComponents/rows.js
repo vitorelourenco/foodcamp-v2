@@ -2,6 +2,14 @@ import menuData from '../database/menuData';
 import React from 'react';
 
 export default function MenuRow({kind, text}){
+
+  function hide(event){
+    let currentArticle = event.target;
+    while (currentArticle.tagName !== 'ARTICLE'){
+      currentArticle = currentArticle.parentNode;
+    }
+    currentArticle.classList.remove('selected');
+  }
   
   function increment(event, index){
     event.stopPropagation();
@@ -14,6 +22,7 @@ export default function MenuRow({kind, text}){
     event.stopPropagation();
     const updatedAmounts = [...amounts];
     updatedAmounts[index]--;
+    if (updatedAmounts[index] == 0) hide(event);
     setAmounts(updatedAmounts);
   }
 
@@ -61,9 +70,9 @@ function handleItemClick(e){
   }
 
   const allArticles = currentSection.querySelectorAll('ARTICLE');
-  allArticles.forEach(article => article.classList.remove('current'));
+  allArticles.forEach(article => article.classList.remove('selected'));
 
-  currentArticle.classList.add('current');
+  currentArticle.classList.add('selected');
   
   const strCount = currentArticle.querySelector('.count').textContent;
   const upButton = currentArticle.querySelector('.upButton'); 

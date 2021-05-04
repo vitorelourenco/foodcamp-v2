@@ -87,15 +87,15 @@ section h2 {
   flex-shrink: 0;
 }
 
-.menu-item:not(.current){
+.menu-item:not(.selected){
   cursor: pointer;
 }
 
-:not(.current) .order-controls{
+:not(.selected) .order-controls{
   display: none;
 }
 
-.current .order-controls{
+.selected .order-controls{
   display: initial;
 }
 
