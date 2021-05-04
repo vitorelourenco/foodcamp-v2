@@ -1,7 +1,15 @@
 import menuData from '../database/menuData';
 import React from 'react';
 
-export default function MenuRow({kind, text}){
+export default function MenuRow({kind, text, setOrderStatus}){
+
+  function checkOrderStatus(){
+    if (document.querySelectorAll('.selected').length === 3){
+      setOrderStatus(true)
+    } else {
+      setOrderStatus(false)
+    }
+  }
 
   function hide(event){
     let currentArticle = event.target;
@@ -16,14 +24,16 @@ export default function MenuRow({kind, text}){
     const updatedAmounts = [...amounts];
     updatedAmounts[index]++;
     setAmounts(updatedAmounts);
+    checkOrderStatus();
   }
 
   function decrement(event, index){
     event.stopPropagation();
     const updatedAmounts = [...amounts];
     updatedAmounts[index]--;
-    if (updatedAmounts[index] == 0) hide(event);
+    if (updatedAmounts[index] === 0) hide(event);
     setAmounts(updatedAmounts);
+    checkOrderStatus();
   }
 
   function JSXifyMenuItem({item:{imgsrc, imgalt, name, description, price, key}, index}){
