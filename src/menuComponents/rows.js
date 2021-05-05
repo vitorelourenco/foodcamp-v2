@@ -1,86 +1,13 @@
-import menuData from '../database/menuData';
-import React from 'react';
+import JSXifyMenuItem from './jsxifyMenuItem';
 
-export default function MenuRow({kind, text, setSelectedItem}){
-  function JSXifyMenuItem({item:{imgsrc, imgalt, name, description, price, key}, index}){
-
-    function handleItemClick(event, index){
-      const currentArticle = getHead(event.target, 'ARTICLE')
-    
-      const currentSection = getHead(currentArticle, 'SECTION');
-    
-      const allArticles = currentSection.querySelectorAll('ARTICLE');
-    
-      allArticles.forEach(article => article.classList.remove('selected'));
-    
-      currentArticle.classList.add('selected');
-      
-      const strCount = currentArticle.querySelector('.count').textContent;
-      const upButton = currentArticle.querySelector('.upButton');
-      if (strCount === '0'){
-        //the click will run setSelectedItem 
-        upButton.click();
-      } else {
-        setSelectedItem(makeObjItem(index,amount));
-      }
-    }
-
-    function makeObjItem(index, amount){
-      return {...menuData[kind][index], amount};
-    }
-
-    function hide(event){
-      const currentArticle = getHead(event.target, 'ARTICLE');
-      currentArticle.classList.remove('selected');
-    }
-
-    function increment(event, index){
-      event.stopPropagation();
-      setAmount(amount+1);
-      setSelectedItem(makeObjItem(index,amount+1));
-    }
-  
-    function decrement(event, index){
-      event.stopPropagation();
-      setAmount(amount-1);
-      setSelectedItem(makeObjItem(index,amount-1));
-      if (amount === 1) hide(event);
-    }
-
-    const [amount,setAmount] = React.useState(0);
-
-    return (
-      <article  onClick={(event)=>handleItemClick(event, index)} key={key} className="menu-item">
-        <div className="item-wrapper">
-          <img src={imgsrc} alt={imgalt} />
-          <h3>{name}</h3>
-          <p className="unit-description">{description}</p>
-        </div>
-        <div className="price-wrapper">
-          <p className="unit-price">{price}</p>
-          <div className="order-controls">
-            <button className="downButton" onClick={(event)=>decrement(event, index)}>-</button>
-            <span className="count">{amount}</span>
-            <button className="upButton" onClick={(event)=>increment(event, index)}>+</button>
-          </div>        
-        </div>
-      </article>
-    );
-  }
-
+export default function MenuRow({cathegory, catIndex, setOrderState, orderState}){
+  const [id, text, key, arrItems] = cathegory;
   return (
-    <section id={kind}>
+    <section key={key} id={id}>
       <h2>{text}</h2>
       <div className='menu'>
-        {menuData[kind].map((item, index) => JSXifyMenuItem({item, index}))}
+        {arrItems.map((item, itemIndex) => JSXifyMenuItem({item, itemIndex, catIndex, setOrderState, orderState}))}
       </div>
     </section>
   );
-}
-
-function getHead(currentObj, headSelector){
-  while (currentObj.tagName !== headSelector){
-    currentObj = currentObj.parentNode;
-  }
-  return currentObj;
 }
