@@ -1,8 +1,8 @@
-const mealsCathegory = [
-  'meals',
-  'Primeiro, seu prato',
-  0,
-  [
+const mealsCathegory = {
+  id: 'meals',
+  text: 'Primeiro, seu prato',
+  key: 0,
+  items: [
     {
       imgsrc : "assets/images/decarne.jpeg",
       imgalt : "Pastelao de Carne",
@@ -28,13 +28,13 @@ const mealsCathegory = [
       key: 2
     }
   ]
-]
+}
 
-const drinksCathegory = [
-  'drinks',
-  'Agora, sua bebida',
-  1,
-  [
+const drinksCathegory = {
+  id: 'drinks',
+  text: 'Agora, sua bebida',
+  key: 1,
+  items: [
     {
       imgsrc : "assets/images/coca2l.webp",
       imgalt : "Coca 2l",
@@ -60,13 +60,13 @@ const drinksCathegory = [
       key: 2
     }
   ]
-]
+}
 
-const dessertsCathegory = [
-  'desserts',
-  'Por fim, sua sobremesa',
-  2,
-  [
+const dessertsCathegory = {
+  id: 'desserts',
+  text: 'Por fim, sua sobremesa',
+  key: 2,
+  items: [
     {
       imgsrc : "assets/images/dechocolate.png",
       imgalt : "Pastel de Chocolate",
@@ -92,7 +92,7 @@ const dessertsCathegory = [
       key: 2
     }
   ]
-]
+}
 
 const allCathegories = [mealsCathegory, drinksCathegory, dessertsCathegory];
 export default allCathegories;

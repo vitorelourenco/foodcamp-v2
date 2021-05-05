@@ -40,7 +40,7 @@ function App(){
       <main>
         {allCathegories.map((cathegory, catIndex) => 
           <MenuRow 
-          key={cathegory[2]} 
+          key={cathegory.key} 
           cathegory={cathegory} 
           catIndex={catIndex} 
           orderState={orderState} 
