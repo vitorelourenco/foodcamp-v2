@@ -4,15 +4,33 @@ import React from 'react';
 export default function MenuRow({kind, text, setSelectedItem}){
   function JSXifyMenuItem({item:{imgsrc, imgalt, name, description, price, key}, index}){
 
+    function handleItemClick(event, index){
+      const currentArticle = getHead(event.target, 'ARTICLE')
+    
+      const currentSection = getHead(currentArticle, 'SECTION');
+    
+      const allArticles = currentSection.querySelectorAll('ARTICLE');
+    
+      allArticles.forEach(article => article.classList.remove('selected'));
+    
+      currentArticle.classList.add('selected');
+      
+      const strCount = currentArticle.querySelector('.count').textContent;
+      const upButton = currentArticle.querySelector('.upButton');
+      if (strCount === '0'){
+        //the click will run setSelectedItem 
+        upButton.click();
+      } else {
+        setSelectedItem(makeObjItem(index,amount));
+      }
+    }
+
     function makeObjItem(index, amount){
       return {...menuData[kind][index], amount};
     }
 
     function hide(event){
-      let currentArticle = event.target;
-      while (currentArticle.tagName !== 'ARTICLE'){
-        currentArticle = currentArticle.parentNode;
-      }
+      const currentArticle = getHead(event.target, 'ARTICLE');
       currentArticle.classList.remove('selected');
     }
 
@@ -32,7 +50,7 @@ export default function MenuRow({kind, text, setSelectedItem}){
     const [amount,setAmount] = React.useState(0);
 
     return (
-      <article  onClick={(event)=>handleItemClick(event)} key={key} className="menu-item">
+      <article  onClick={(event)=>handleItemClick(event, index)} key={key} className="menu-item">
         <div className="item-wrapper">
           <img src={imgsrc} alt={imgalt} />
           <h3>{name}</h3>
@@ -60,26 +78,9 @@ export default function MenuRow({kind, text, setSelectedItem}){
   );
 }
 
-function handleItemClick(event){
-  let currentArticle = event.target;
-  while (currentArticle.tagName !== 'ARTICLE'){
-    currentArticle = currentArticle.parentNode;
+function getHead(currentObj, headSelector){
+  while (currentObj.tagName !== headSelector){
+    currentObj = currentObj.parentNode;
   }
-
-  let currentSection = currentArticle;
-  while (currentSection.tagName !== 'SECTION'){
-    currentSection = currentSection.parentNode;
-  }
-
-  const allArticles = currentSection.querySelectorAll('ARTICLE');
-  allArticles.forEach(article => article.classList.remove('selected'));
-
-  currentArticle.classList.add('selected');
-  
-  const strCount = currentArticle.querySelector('.count').textContent;
-  const upButton = currentArticle.querySelector('.upButton'); 
-  if (strCount === '0'){
-    upButton.click();
-  }
+  return currentObj;
 }
-
