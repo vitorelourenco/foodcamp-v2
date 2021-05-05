@@ -1,42 +1,36 @@
 import menuData from '../database/menuData';
 import React from 'react';
 
-export default function MenuRow({kind, text, setOrderStatus}){
-
-  function checkOrderStatus(){
-    if (document.querySelectorAll('.selected').length === 3){
-      setOrderStatus(true)
-    } else {
-      setOrderStatus(false)
-    }
-  }
-
-  function hide(event){
-    let currentArticle = event.target;
-    while (currentArticle.tagName !== 'ARTICLE'){
-      currentArticle = currentArticle.parentNode;
-    }
-    currentArticle.classList.remove('selected');
-  }
-  
-  function increment(event, index){
-    event.stopPropagation();
-    const updatedAmounts = [...amounts];
-    updatedAmounts[index]++;
-    setAmounts(updatedAmounts);
-    checkOrderStatus();
-  }
-
-  function decrement(event, index){
-    event.stopPropagation();
-    const updatedAmounts = [...amounts];
-    updatedAmounts[index]--;
-    if (updatedAmounts[index] === 0) hide(event);
-    setAmounts(updatedAmounts);
-    checkOrderStatus();
-  }
-
+export default function MenuRow({kind, text, setSelectedItem}){
   function JSXifyMenuItem({item:{imgsrc, imgalt, name, description, price, key}, index}){
+
+    function makeObjItem(index, amount){
+      return {...menuData[kind][index], amount};
+    }
+
+    function hide(event){
+      let currentArticle = event.target;
+      while (currentArticle.tagName !== 'ARTICLE'){
+        currentArticle = currentArticle.parentNode;
+      }
+      currentArticle.classList.remove('selected');
+    }
+
+    function increment(event, index){
+      event.stopPropagation();
+      setAmount(amount+1);
+      setSelectedItem(makeObjItem(index,amount+1));
+    }
+  
+    function decrement(event, index){
+      event.stopPropagation();
+      setAmount(amount-1);
+      setSelectedItem(makeObjItem(index,amount-1));
+      if (amount === 1) hide(event);
+    }
+
+    const [amount,setAmount] = React.useState(0);
+
     return (
       <article  onClick={(event)=>handleItemClick(event)} key={key} className="menu-item">
         <div className="item-wrapper">
@@ -48,15 +42,13 @@ export default function MenuRow({kind, text, setOrderStatus}){
           <p className="unit-price">{price}</p>
           <div className="order-controls">
             <button className="downButton" onClick={(event)=>decrement(event, index)}>-</button>
-            <span className="count">{amounts[index]}</span>
+            <span className="count">{amount}</span>
             <button className="upButton" onClick={(event)=>increment(event, index)}>+</button>
           </div>        
         </div>
       </article>
     );
   }
-
-  const [amounts, setAmounts] = React.useState((new Array(menuData[kind].length)).fill(0));
 
   return (
     <section id={kind}>
