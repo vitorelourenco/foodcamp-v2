@@ -4,12 +4,13 @@ import Header from './header';
 import Footer from './footer';
 import React from 'react';
 import allCathegories from './database/menuData';
-import initialState from './initialState';
+import initialState from './database/initialState';
 
 const root = document.querySelector('.root');
 
 function App(){
   function handleOrderStatus(){
+
     const isReady = orderState.reduce((bol, row)=>{
       let rowFlag = false;
       row.forEach((item)=>{
@@ -27,6 +28,7 @@ function App(){
         setOrderStatus(false);
       }
     }
+
   }
 
   const [orderStatus, setOrderStatus] = React.useState(false);
@@ -46,11 +48,12 @@ function App(){
           orderState={orderState} 
           setOrderState={setOrderState}
           />
-        )};
+        )}
       </main>
       <Footer order={orderState} status={orderStatus}/>
     </>
   );
+
 }
 
 ReactDOM.render(<App />, root);

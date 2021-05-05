@@ -1,4 +1,4 @@
-import allCathegories from './database/menuData';
+import allCathegories from './menuData';
 
 const initialState =  [...allCathegories];
 

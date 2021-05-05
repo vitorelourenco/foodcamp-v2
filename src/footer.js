@@ -12,7 +12,21 @@ export default function Footer({order, status}){
   );
 }
 
-function checkout(order, isReady){
+function checkout(rawOrder, isReady){
   if (!isReady) return;
-  console.log(order);
+  const processedOrder = processOrder(rawOrder);
+  console.log(processedOrder);
+}
+
+function processOrder(rawOrder){
+  let processedOrder = [];
+  rawOrder.forEach(cathegory => {
+    cathegory.forEach(item =>{
+      const {name, price, amount} = item;
+      const numberPrice = Number(price.match(/[\d,]+/)[0].replace(',','.'));
+      const total = numberPrice*amount;
+      if (amount > 0) processedOrder.push({name, numberPrice, amount, total});
+    });
+  });
+  return processedOrder;
 }
