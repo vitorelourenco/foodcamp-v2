@@ -1,4 +1,3 @@
-import getHead from '../general/getHead';
 import React from 'react';
 
 export default function JSXifyMenuItem({item, itemIndex, catIndex, setOrderState, orderState}){
@@ -8,23 +7,14 @@ export default function JSXifyMenuItem({item, itemIndex, catIndex, setOrderState
     return JSON.parse(JSON.stringify(object))
   }
 
-  function handleItemClick(event){
-    const currentArticle = getHead(event.target, 'ARTICLE')
-    currentArticle.classList.add('selected');
-
-    const strCount = currentArticle.querySelector('.count').textContent;
-    const upButton = currentArticle.querySelector('.upButton');
-    if (strCount === '0'){
-      //the click will run setSelectedItem 
-      upButton.click();
+  function handleItemClick(){
+    if (stateItem.amount === 0){
+      const newState = deepCopy(orderState);
+      newState[catIndex][itemIndex].amount = 1;
+      setOrderState(newState);
     }
   }
 
-  function deSelect(event){
-    const currentArticle = getHead(event.target, 'ARTICLE');
-    currentArticle.classList.remove('selected');
-  }
-  
   function increment(event){
     event.stopPropagation();
     const newState = deepCopy(orderState);
@@ -37,13 +27,13 @@ export default function JSXifyMenuItem({item, itemIndex, catIndex, setOrderState
     const newState = deepCopy(orderState);
     newState[catIndex][itemIndex].amount = stateItem.amount-1;
     setOrderState(newState);
-    if (stateItem.amount === 1) deSelect(event);
   }
 
   const stateItem = orderState[catIndex][itemIndex];
 
+  const articleClasses = stateItem.amount > 0 ? "menu-item selected" : "menu-item";
   return (
-    <article onClick={(event)=>handleItemClick(event)} key={key} className="menu-item">
+    <article onClick={()=>handleItemClick()} key={key} className={articleClasses}>
       <div className="item-wrapper">
         <img src={imgsrc} alt={imgalt} />
         <h3>{name}</h3>

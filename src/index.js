@@ -3,6 +3,7 @@ import React from 'react';
 import initialState from './database/initialState';
 import Home from './home';
 import Header from './header';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,11 +20,11 @@ function App(){
     <Router>
       <Header />
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home orderState={orderState} setOrderState={setOrderState}/>
         </Route>
         <Route path="/revisar">
-          <h1>oioioi</h1>
+          <><h1>oioioi</h1></>
         </Route>
       </Switch>
     </Router>
