@@ -1,59 +1,27 @@
 import ReactDOM from 'react-dom';
-import MenuRow from './menuComponents/rows';
-import Header from './header';
-import Footer from './footer';
 import React from 'react';
-import allCathegories from './database/menuData';
 import initialState from './database/initialState';
+import Home from './home';
+import Header from './header';
 
 const root = document.querySelector('.root');
 
 function App(){
-  function handleOrderStatus(){
-
-    const isReady = orderState.reduce((bol, row)=>{
-      let rowFlag = false;
-      row.forEach((item)=>{
-        if (item.amount > 0) rowFlag = true; 
-      });
-      return bol && rowFlag;
-    }, true);
-
-    if (isReady === true){
-      if (orderStatus === false){
-        setOrderStatus(true);
-      }
-    } else {
-      if (orderStatus === true){
-        setOrderStatus(false);
-      }
-    }
-
-  }
-
-  const [orderStatus, setOrderStatus] = React.useState(false);
   const [orderState, setOrderState] = React.useState(initialState);
 
-  handleOrderStatus();
-
-  return (
-    <>
+  return (      
+    <Router>
       <Header />
-      <main>
-        {allCathegories.map((cathegory, catIndex) => 
-          <MenuRow 
-          key={cathegory.key} 
-          cathegory={cathegory} 
-          catIndex={catIndex} 
-          orderState={orderState} 
-          setOrderState={setOrderState}
-          />
-        )}
-      </main>
-      <Footer order={orderState} status={orderStatus}/>
-    </>
+      <Switch>
+        <Route path="/">
+          <Home orderState={orderState} setOrderState={setOrderState}/>
+        </Route>
+        <Route path="/revisar">
+          <h1>oioioi</h1>
+        </Route>
+      </Switch>
+    </Router>
   );
-
 }
 
 ReactDOM.render(<App />, root);
