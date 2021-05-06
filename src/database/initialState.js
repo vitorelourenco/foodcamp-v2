@@ -1,12 +1,13 @@
-import allCategories from './menuData';
+import allCategories from "./menuData";
+import deepCopy from '../general/deepCopy';
 
-const initialState =  [...allCategories];
+const initialState = deepCopy(allCategories);
 
-initialState.forEach((_,i) =>{
+initialState.forEach((_, i) => {
   initialState[i] = initialState[i].items;
-  initialState[i].forEach((_,j) => {
+  initialState[i].forEach((_, j) => {
     initialState[i][j].amount = 0;
-  })
+  });
 });
 
 export default initialState;

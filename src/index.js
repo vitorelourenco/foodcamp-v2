@@ -1,30 +1,26 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import initialState from './database/initialState';
-import Home from './home';
-import Header from './header';
-import Review from './review';
+import ReactDOM from "react-dom";
+import React from "react";
+import initialState from "./database/initialState";
+import Home from "./home";
+import Header from "./header";
+import Review from "./review";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const root = document.querySelector('.root');
+const root = document.querySelector(".root");
 
-function App(){
+function App() {
   const [orderState, setOrderState] = React.useState(initialState);
 
-  return (      
+  return (
     <Router>
       <Header />
       <Switch>
         <Route exact path="/">
-          <Home orderState={orderState} setOrderState={setOrderState}/>
+          <Home orderState={orderState} setOrderState={setOrderState} />
         </Route>
         <Route path="/revisar">
-          <Review orderState={orderState}/>
+          <Review orderState={orderState} />
         </Route>
       </Switch>
     </Router>

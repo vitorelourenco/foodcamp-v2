@@ -1,12 +1,12 @@
-:root{
+:root {
   --mute: #e5e5e5;
   --dark: #333;
   --red: #cf2b2b;
   --green: #32b72f;
   --grey: #cbcbcb;
   --checkout-green: #50d074;
-  --ff-roboto: 'Roboto', sans-serif;
-  --ff-righteous : 'Righteous', cursive;
+  --ff-roboto: "Roboto", sans-serif;
+  --ff-righteous: "Righteous", cursive;
 }
 
 header {
@@ -23,7 +23,7 @@ header {
   height: 92px;
 }
 
-header h1{
+header h1 {
   font-family: var(--ff-righteous);
   font-weight: normal;
   font-size: 44px;
@@ -31,7 +31,7 @@ header h1{
   letter-spacing: -0.012em;
 }
 
-header p{
+header p {
   font-family: var(--ff-roboto);
   font-weight: normal;
   font-size: 18px;
@@ -44,11 +44,11 @@ main {
   min-height: 100vh;
 }
 
-section{
+section {
   margin-top: 17px;
 }
 
-section:first-child{
+section:first-child {
   margin-top: 0;
 }
 
@@ -62,12 +62,12 @@ section h2 {
   margin-left: 10px;
 }
 
-.menu{
+.menu {
   overflow-x: scroll;
   display: flex;
 }
 
-.menu::after{
+.menu::after {
   content: ".";
   color: var(--mute);
   width: 1px;
@@ -88,15 +88,15 @@ section h2 {
   flex-shrink: 0;
 }
 
-.menu-item:not(.selected){
+.menu-item:not(.selected) {
   cursor: pointer;
 }
 
-:not(.selected) .order-controls{
+:not(.selected) .order-controls {
   display: none;
 }
 
-.selected .order-controls{
+.selected .order-controls {
   display: initial;
 }
 
@@ -104,11 +104,11 @@ section h2 {
   width: 100%;
 }
 
-.item-wrapper > *{
+.item-wrapper > * {
   margin-bottom: 10px;
 }
 
-.item-wrapper > *:last-child{
+.item-wrapper > *:last-child {
   margin-bottom: 0;
 }
 
@@ -119,14 +119,14 @@ section h2 {
   border-radius: 4px;
 }
 
-.item-wrapper h3{
+.item-wrapper h3 {
   font-weight: bold;
   font-size: 16px;
   line-height: 18.75px;
   color: var(--dark);
 }
 
-.unit-description{
+.unit-description {
   color: #a6a6a6;
   line-height: 18px;
   font-size: 15px;
@@ -148,7 +148,7 @@ section h2 {
 }
 
 .upButton,
-.downButton{
+.downButton {
   background-color: white;
   border: none;
   height: 19px;
@@ -158,19 +158,18 @@ section h2 {
   cursor: pointer;
 }
 
-.upButton{
+.upButton {
   color: var(--green);
   text-align: end;
   width: 15px;
 }
 
-.downButton{
+.downButton {
   width: 30px;
   padding-left: 15px;
   text-align: start;
   color: var(--red);
 }
-
 
 .checked {
   font-size: 19px;
@@ -183,12 +182,12 @@ section h2 {
   color: var(--mute);
 }
 
-.selected{
+.selected {
   border: 5px solid var(--green);
   box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
-footer{
+footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -199,7 +198,7 @@ footer{
   height: 92px;
 }
 
-footer button{
+footer button {
   height: 100%;
   width: 100%;
   color: white;
@@ -211,7 +210,7 @@ footer button{
   outline: none;
 }
 
-.goto-checkout-text{
+.goto-checkout-text {
   font-family: var(--ff-roboto);
   font-weight: 400;
   line-height: 23px;
@@ -219,7 +218,7 @@ footer button{
   letter-spacing: 0.018em;
 }
 
-.checkout{
+.checkout {
   width: calc(100% - 30px);
   margin-top: 33px;
   margin-bottom: 33px;
@@ -240,7 +239,7 @@ footer button{
   margin-bottom: 13px;
 }
 
-.order{
+.order {
   width: 100%;
 }
 
@@ -251,17 +250,17 @@ footer button{
   margin-bottom: 13px;
 }
 
-.order-line:last-child{
+.order-line:last-child {
   margin-bottom: 0;
 }
 
-.order-line *:last-child{
+.order-line *:last-child {
   flex-shrink: 0;
   margin-left: 5px;
 }
 
 .confirm,
-.cancel{
+.cancel {
   border: none;
   margin-left: 10px;
   border-radius: 20px;
@@ -277,12 +276,12 @@ footer button{
   display: block;
 }
 
-.confirm{
+.confirm {
   color: white;
   background-color: var(--checkout-green);
 }
 
-.cancel{
+.cancel {
   background-color: var(--mute);
   color: #777777;
 }
@@ -293,23 +292,23 @@ footer button{
   align-items: center;
 }
 
-.checkout-section h2{
+.checkout-section h2 {
   width: calc(100% - 30px);
   max-width: 414px;
   margin-bottom: 0;
 }
 
-.cancel-a-link{
-  display: block; 
+.cancel-a-link {
+  display: block;
   width: calc(100% - 30px);
   max-width: 414px;
 }
 
-.fw-bold{
+.fw-bold {
   font-weight: bold;
 }
 
-.d-none{
+.d-none {
   display: none;
 }
 
@@ -325,7 +324,7 @@ footer button{
   background-color: white;
 }
 
-.d-initial{
+.d-initial {
   display: initial;
 }
 
@@ -333,16 +332,15 @@ footer button{
   cursor: pointer;
 }
 
-
-@media (max-width: 738px){
-  .menu{
+@media (max-width: 738px) {
+  .menu {
     overflow-x: scroll;
     display: flex;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
-  .menu::-webkit-scrollbar{
+
+  .menu::-webkit-scrollbar {
     display: none;
   }
 }
