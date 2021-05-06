@@ -41,6 +41,7 @@ header p{
 main {
   padding: 123px 0 108px 6px;
   background-color: var(--mute);
+  min-height: 100vh;
 }
 
 section{
@@ -232,11 +233,14 @@ footer button{
 }
 
 .checkout{
-  width: calc(100% - 20px);
-  padding: 20px 20px 0 20px;
+  width: calc(100% - 30px);
+  margin-top: 33px;
+  margin-bottom: 33px;
+  margin-left: 10px;
+  padding: 20px;
   max-width: 414px;
-  background-color: var(--checkout-green);
-  color: white;
+  background-color: white;
+  color: #333333;
   font-size: 22px;
   display: flex;
   flex-direction: column;
@@ -245,8 +249,8 @@ footer button{
   border-radius: 9px;
 }
 
-.checkout > * {
-  margin-bottom: 24px;
+.checkout > *:not(:last-child) {
+  margin-bottom: 13px;
 }
 
 .order{
@@ -272,10 +276,11 @@ footer button{
 .confirm,
 .cancel{
   border: none;
+  margin-left: 10px;
   border-radius: 20px;
   height: 52px;
   cursor: pointer;
-  width: 100%;
+  width: calc(100% - 30px);
   font-weight: bold;
   letter-spacing: 0.018em;
   line-height: 26px;
@@ -284,13 +289,17 @@ footer button{
 }
 
 .confirm{
-  color: var(--checkout-green);
-  background-color: white;
+  color: white;
+  background-color: var(--checkout-green);
 }
 
 .cancel{
-  background-color: var(--checkout-green);
-  color: white;
+  background-color: var(--mute);
+  color: #777777;
+}
+
+.fw-bold{
+  font-weight: bold;
 }
 
 .d-none{
@@ -316,6 +325,7 @@ footer button{
 .pointer {
   cursor: pointer;
 }
+
 
 @media (max-width: 738px){
   .menu{

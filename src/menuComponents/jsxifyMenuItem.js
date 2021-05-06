@@ -50,4 +50,3 @@ export default function JSXifyMenuItem({item, itemIndex, catIndex, setOrderState
     </article>
   );
 }
-

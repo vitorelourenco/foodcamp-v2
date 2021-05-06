@@ -17,29 +17,10 @@ export default function Footer({order, status}){
   return(
     <footer>
       <Link to="/revisar" onClick={managedClick}>
-        <button onClick={()=>checkout(order, status)} className={classList}>
+        <button className={classList}>
           <p className="goto-checkout-text">{message}</p>
         </button>
       </Link>
     </footer>
   );
-}
-
-function checkout(rawOrder, isReady){
-  if (!isReady) return;
-  const processedOrder = processOrder(rawOrder);
-  console.log(processedOrder);
-}
-
-function processOrder(rawOrder){
-  let processedOrder = [];
-  rawOrder.forEach(cathegory => {
-    cathegory.forEach(item =>{
-      const {name, price, amount} = item;
-      const numberPrice = Number(price.match(/[\d,]+/)[0].replace(',','.'));
-      const total = numberPrice*amount;
-      if (amount > 0) processedOrder.push({name, numberPrice, amount, total});
-    });
-  });
-  return processedOrder;
 }
