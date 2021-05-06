@@ -11,16 +11,16 @@ export default function Review({orderState}){
     let preProcessedOrder = [];
     rawOrder.forEach(cathegory => {
       cathegory.forEach(item =>{
-        const {name, price, amount} = item;
+        const {name, price, amount, kind} = item;
         const numberPrice = Number(price.match(/[\d,]+/)[0].replace(',','.'));
         const total = numberPrice*amount;
-        if (amount > 0) preProcessedOrder.push({name, numberPrice, amount, total});
+        if (amount > 0) preProcessedOrder.push({name, kind, numberPrice, amount, total});
       });
     });
     return preProcessedOrder;
   }
 
-  function JSXifyOrder({name, numberPrice, amount, total}){
+  function JSXifyOrder({name, amount, total}){
     const leftSide = amount > 1 ? `${name} (${amount}x)` : name;
     const rightSide = total.toFixed(2).replace('.',',');
 
@@ -34,6 +34,21 @@ export default function Review({orderState}){
 
   function getTotal(preProcessedOrder){
     return preProcessedOrder.reduce((acc, orderLine)=>acc+orderLine.total, 0).toFixed(2).replace('.',',');
+  }
+
+  function placeOrder(preProcessedOrder){
+    console.log(preProcessedOrder);
+    let message = `Ola, gostaria de fazer o pedido:\n`
+
+    preProcessedOrder.forEach(item=>{
+      const multiplier = item.amount > 1 ? ` (${item.amount}x)` : '';
+      message += ` - ${item.kind}: ${item.name}${multiplier}\n`;
+    })
+
+    message += `Total: R$ ${getTotal(preProcessedOrder)}`;
+    const encodedOrder = encodeURIComponent(message);
+    const fullUrl = "https://wa.me/5521971275567?text=" + encodedOrder;
+    window.open(fullUrl);
   }
 
   const preProcessedOrder = preProcessOrder(orderState);
@@ -51,9 +66,9 @@ export default function Review({orderState}){
             </li>
           </ul>
         </div>
-        <button class="confirm" onclick="placeOrder()">Tudo certo, pode pedir!</button>
+        <button class="confirm" onClick={()=>placeOrder(preProcessedOrder)}>Tudo certo, pode pedir!</button>
         <Link className="cancel-a-link" to="/">
-          <button class="cancel" onclick="dumpOrder()">Cancelar</button>
+          <button class="cancel">Cancelar</button>
         </Link>
       </section>
     </main>

@@ -5,6 +5,7 @@ const allCathegories = [
     key: 0,
     items: [
       {
+        kind: 'Prato',
         imgsrc : "assets/images/decarne.jpeg",
         imgalt : "Pastelao de Carne",
         name : "Pastelao de Carne",
@@ -13,6 +14,7 @@ const allCathegories = [
         key: 0
       },
       {
+        kind: 'Prato',
         imgsrc : "assets/images/degorgonzola.jpg",
         imgalt : "Pastel de Gorgozola com Tomate Seco",
         name : "Pastelao de Gorgonzola com Tomate Seco",
@@ -21,6 +23,7 @@ const allCathegories = [
         key: 1
       },
       {
+        kind: 'Prato',
         imgsrc : "assets/images/depalmito.webp",
         imgalt : "Pastel de Palmito",
         name : "Pastelao de Palmito",
@@ -36,6 +39,7 @@ const allCathegories = [
     key: 1,
     items: [
       {
+        kind: 'Bebida',
         imgsrc : "assets/images/coca2l.webp",
         imgalt : "Coca 2l",
         name : "Coca 2l",
@@ -44,6 +48,7 @@ const allCathegories = [
         key: 0
       },
       {
+        kind: 'Bebida',
         imgsrc : "assets/images/cocalata.webp",
         imgalt : "Coca 350ml",
         name : "Coca 350ml",
@@ -52,6 +57,7 @@ const allCathegories = [
         key: 1
       },
       {
+        kind: 'Bebida',
         imgsrc : "assets/images/matte.webp",
         imgalt : "Matte 1.5l",
         name : "Matte 1.5l",
@@ -67,6 +73,7 @@ const allCathegories = [
     key: 2,
     items: [
       {
+        kind: 'Sobremesa',
         imgsrc : "assets/images/dechocolate.png",
         imgalt : "Pastel de Chocolate",
         name : "Pastel de Chocolate com Morango",
@@ -75,6 +82,7 @@ const allCathegories = [
         key: 0
       },
       {
+        kind: 'Sobremesa',
         imgsrc : "assets/images/debanana.webp",
         imgalt : "Pastel de Banana",
         name : "Pastel de Banana",
@@ -83,6 +91,7 @@ const allCathegories = [
         key: 1
       },
       {
+        kind: 'Sobremesa',
         imgsrc : "assets/images/dechocolatebranco.jpg",
         imgalt : "Pastel de Chocolate Branco",
         name : "Pastel de Chocolate Branco",
