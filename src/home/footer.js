@@ -12,11 +12,12 @@ export default function Footer({ status }) {
   );
   const classList = status === true ? "bg-green pointer" : "bg-grey";
   const message = status === true ? readyMessage : waitingMessage;
-  const goHead = () => {
+  const goAhead = () => {
     return;
   };
   const holdOn = (e) => e.preventDefault();
-  const managedClick = status === true ? goHead : holdOn;
+  const managedClick = status === true ? goAhead : holdOn;
+
   return (
     <footer>
       <Link to="/revisar" onClick={managedClick}>

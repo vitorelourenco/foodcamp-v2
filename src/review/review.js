@@ -15,12 +15,13 @@ export default function Review({ orderState }) {
     return preProcessedOrder;
   }
 
-  function JSXifyOrder({ name, amount, total }) {
+  function OrderLine(props) {
+    const { name, amount, total } = props.objConfig;
     const leftSide = amount > 1 ? `${name} (${amount}x)` : name;
     const rightSide = total.toFixed(2).replace(".", ",");
 
     return (
-      <li class="order-line">
+      <li className="order-line">
         <p>{leftSide}</p>
         <p>{rightSide}</p>
       </li>
@@ -35,7 +36,6 @@ export default function Review({ orderState }) {
   }
 
   function placeOrder(preProcessedOrder) {
-    console.log(preProcessedOrder);
     let message = `Ola, gostaria de fazer o pedido:\n`;
 
     preProcessedOrder.forEach((item) => {
@@ -53,22 +53,27 @@ export default function Review({ orderState }) {
 
   return (
     <main>
-      <section class="checkout-section">
+      <section className="checkout-section">
         <h2>Revise seu pedido</h2>
-        <div class="checkout">
-          <ul class="order">
-            {preProcessedOrder.map((orderLine) => JSXifyOrder(orderLine))}
-            <li class="order-line">
-              <p class="fw-bold">Total</p>
-              <p class="fw-bold">R$ {getTotal(preProcessedOrder)}</p>
+        <div className="checkout">
+          <ul className="order">
+            {preProcessedOrder.map((orderLine, i) => (
+              <OrderLine key={i} objConfig={orderLine} />
+            ))}
+            <li className="order-line">
+              <p className="fw-bold">Total</p>
+              <p className="fw-bold">R$ {getTotal(preProcessedOrder)}</p>
             </li>
           </ul>
         </div>
-        <button class="confirm" onClick={() => placeOrder(preProcessedOrder)}>
+        <button
+          className="confirm"
+          onClick={() => placeOrder(preProcessedOrder)}
+        >
           Tudo certo, pode pedir!
         </button>
         <Link className="cancel-a-link" to="/">
-          <button class="cancel">Cancelar</button>
+          <button className="cancel">Cancelar</button>
         </Link>
       </section>
     </main>

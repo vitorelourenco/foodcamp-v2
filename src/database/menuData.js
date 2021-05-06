@@ -2,7 +2,6 @@ const allCategories = [
   {
     id: "meals",
     text: "Primeiro, seu prato",
-    key: 0,
     items: [
       {
         kind: "Prato",
@@ -11,7 +10,6 @@ const allCategories = [
         name: "Pastelao de Carne",
         description: "Sem misterios, aquele que voce ja conhece",
         price: "R$ 6,90",
-        key: 0,
       },
       {
         kind: "Prato",
@@ -20,7 +18,6 @@ const allCategories = [
         name: "Pastelao de Gorgonzola com Tomate Seco",
         description: "Experimenta!",
         price: "R$ 9,90",
-        key: 1,
       },
       {
         kind: "Prato",
@@ -29,14 +26,12 @@ const allCategories = [
         name: "Pastelao de Palmito",
         description: "Melhor que o da feira! Juro!",
         price: "R$ 8,90",
-        key: 2,
       },
     ],
   },
   {
     id: "drinks",
     text: "Agora, sua bebida",
-    key: 1,
     items: [
       {
         kind: "Bebida",
@@ -45,7 +40,6 @@ const allCategories = [
         name: "Coca 2l",
         description: "Tem pra todo mundo!",
         price: "R$ 10,00",
-        key: 0,
       },
       {
         kind: "Bebida",
@@ -54,7 +48,6 @@ const allCategories = [
         name: "Coca 350ml",
         description: "Na medida certa",
         price: "R$ 5,00",
-        key: 1,
       },
       {
         kind: "Bebida",
@@ -63,14 +56,12 @@ const allCategories = [
         name: "Matte 1.5l",
         description: "Pra quem curte um cha gelado",
         price: "R$ 9,00",
-        key: 2,
       },
     ],
   },
   {
     id: "desserts",
     text: "Por fim, sua sobremesa",
-    key: 2,
     items: [
       {
         kind: "Sobremesa",
@@ -79,7 +70,6 @@ const allCategories = [
         name: "Pastel de Chocolate com Morango",
         description: "Indescritivel",
         price: "R$ 8,00",
-        key: 0,
       },
       {
         kind: "Sobremesa",
@@ -88,7 +78,6 @@ const allCategories = [
         name: "Pastel de Banana",
         description: "Inusitadamente brasileira",
         price: "R$ 6,00",
-        key: 1,
       },
       {
         kind: "Sobremesa",
@@ -97,7 +86,6 @@ const allCategories = [
         name: "Pastel de Chocolate Branco",
         description: "Sim, isso existe",
         price: "R$ 8,10",
-        key: 2,
       },
     ],
   },

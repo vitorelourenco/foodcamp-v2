@@ -1,14 +1,15 @@
 import React from "react";
-import deepCopy from "../general/deepCopy";
+import deepCopy from "../general_functions/deepCopy";
 
-export default function JSXifyMenuItem({
-  item,
-  itemIndex,
-  catIndex,
-  setOrderState,
-  orderState,
-}) {
-  const { imgsrc, imgalt, name, description, price, key } = item;
+export default function MenuItem(props) {
+  const {
+    item,
+    itemIndex,
+    catIndex,
+    setOrderState,
+    orderState,
+  } = props.objConfig;
+  const { imgsrc, imgalt, name, description, price } = item;
 
   function handleItemClick() {
     if (stateItem.amount === 0) {
@@ -36,12 +37,9 @@ export default function JSXifyMenuItem({
 
   const articleClasses =
     stateItem.amount > 0 ? "menu-item selected" : "menu-item";
+
   return (
-    <article
-      onClick={() => handleItemClick()}
-      key={key}
-      className={articleClasses}
-    >
+    <article onClick={() => handleItemClick()} className={articleClasses}>
       <div className="item-wrapper">
         <img src={imgsrc} alt={imgalt} />
         <h3>{name}</h3>

@@ -1,5 +1,5 @@
 import allCategories from "./menuData";
-import deepCopy from '../general/deepCopy';
+import deepCopy from '../general_functions/deepCopy';
 
 const initialState = deepCopy(allCategories);
 
