@@ -8,7 +8,10 @@ export default function Home({ orderState, setOrderState }) {
     const isReady = orderState.reduce((bol, row) => {
       let rowFlag = false;
       row.forEach((item) => {
-        if (item.amount > 0) rowFlag = true;
+        if (item.amount > 0) {
+          rowFlag = true;
+          break;
+        }
       });
       return bol && rowFlag;
     }, true);

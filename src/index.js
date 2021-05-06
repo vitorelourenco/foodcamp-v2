@@ -4,8 +4,10 @@ import initialState from "./database/initialState";
 import Home from "./home/home";
 import Header from "./global_components/header";
 import Review from "./review/review";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import './css/reset.css';
+import './css/styles.css';
 
 const root = document.querySelector(".root");
 
