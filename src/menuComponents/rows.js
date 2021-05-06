@@ -1,7 +1,7 @@
 import JSXifyMenuItem from './jsxifyMenuItem';
 
-export default function MenuRow({cathegory, catIndex, setOrderState, orderState}){
-  const {id, text, key, items} = cathegory;
+export default function MenuRow({category, catIndex, setOrderState, orderState}){
+  const {id, text, key, items} = category;
   return (
     <section key={key} id={id}>
       <h2>{text}</h2>

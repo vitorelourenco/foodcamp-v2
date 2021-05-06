@@ -3,7 +3,7 @@ import {
   Link
 } from "react-router-dom";
 
-export default function Footer({order, status}){
+export default function Footer({status}){
   const readyMessage = (<>Fechar Pedido</>);
   const waitingMessage = (<>Selecione os 3 itens<br />para fechar o pedido</>);
   const classList = status === true ? 'bg-green pointer' : 'bg-grey';

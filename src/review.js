@@ -6,8 +6,8 @@ export default function Review({orderState}){
 
   function preProcessOrder(rawOrder){
     let preProcessedOrder = [];
-    rawOrder.forEach(cathegory => {
-      cathegory.forEach(item =>{
+    rawOrder.forEach(category => {
+      category.forEach(item =>{
         const {name, price, amount, kind} = item;
         const numberPrice = Number(price.match(/[\d,]+/)[0].replace(',','.'));
         const total = numberPrice*amount;

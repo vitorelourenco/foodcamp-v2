@@ -1,6 +1,6 @@
 import MenuRow from './menuComponents/rows';
 import Footer from './footer';
-import allCathegories from './database/menuData';
+import allCategories from './database/menuData';
 import React from 'react';
 
 export default function Home({orderState ,setOrderState}){
@@ -34,10 +34,10 @@ export default function Home({orderState ,setOrderState}){
   return (
     <>
       <main>
-        {allCathegories.map((cathegory, catIndex) => 
+        {allCategories.map((category, catIndex) => 
           <MenuRow 
-          key={cathegory.key} 
-          cathegory={cathegory} 
+          key={category.key} 
+          category={category} 
           catIndex={catIndex} 
           orderState={orderState} 
           setOrderState={setOrderState}

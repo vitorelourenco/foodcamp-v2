@@ -1,6 +1,6 @@
-import allCathegories from './menuData';
+import allCategories from './menuData';
 
-const initialState =  [...allCathegories];
+const initialState =  [...allCategories];
 
 initialState.forEach((_,i) =>{
   initialState[i] = initialState[i].items;

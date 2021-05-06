@@ -1,4 +1,4 @@
-const allCathegories = [
+const allCategories = [
   {
     id: 'meals',
     text: 'Primeiro, seu prato',
@@ -103,4 +103,4 @@ const allCathegories = [
   }
 ]
 
-export default allCathegories;
+export default allCategories;
