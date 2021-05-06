@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Foodcamp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![screenshot](./app_screenshot.png)
 
-## Available Scripts
+React-Foodcamp is a single page application in which the user can choose at least one and up to any number of items per category for any number of categories. Once the order is ready to be placed and the 'Fechar pedido' button is clicked, the user is routed to the checkout review screen for reviewing, where they can cancel it or confirm the order and send it through whatsapp using the whatsapp API. The scrollbars that show up in the large screen sizes were a requirement set by others for this project but they can be easily hidden.
 
-In the project directory, you can run:
+## Built With
 
-### `npm start`
+- React , JavaScript , CSS3 , HTML5  
+- Windows, Linux
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Live Demo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Live Demo Link](https://react-foodcamp-pzhu66hvf-vitorelourenco.vercel.app/)
 
-### `npm test`
+## Instalation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Get the ./src and ./public files from the repo however you prefer and run the following commands
+- create-react-app folder_name --template @bootcamp-ra/cra-template
+- npm install --save react-router-dom
 
-### `npm run build`
+## Preview
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+run the command:
+- npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+run the command:
+- npm run build
 
-### `npm run eject`
+## Deploy
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You can deploy this project on Vercel but beforehand you may need to run:
+- npm install react-router-dom
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Authors
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+👤 **Vitor Emanuel Lourenco**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- GitHub: [@vitorelourenco](https://github.com/vitorelourenco)
+- Twitter: [@Vitorel](https://twitter.com/Vitorel)
+- LinkedIn: [vitoremanuellourenco](https://www.linkedin.com/in/vitoremanuellourenco/)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🤝 Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions, issues, and feature requests are welcome!
 
-### Code Splitting
+Feel free to check the [issues page](https://github.com/vitorelourenco/react-foodcamp/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Show your support
 
-### Analyzing the Bundle Size
+Give a ⭐️ if you like this project!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Acknowledgments
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- RespondeAi (https://www.respondeai.com.br/)
+- The Odin Project (https://www.theodinproject.com/)
