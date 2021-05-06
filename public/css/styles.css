@@ -219,19 +219,6 @@ footer button{
   letter-spacing: 0.018em;
 }
 
-.checkout-background{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .checkout{
   width: calc(100% - 30px);
   margin-top: 33px;
@@ -286,6 +273,8 @@ footer button{
   line-height: 26px;
   margin-bottom: 1px;
   font-size: 22px;
+  max-width: 414px;
+  display: block;
 }
 
 .confirm{
@@ -296,6 +285,23 @@ footer button{
 .cancel{
   background-color: var(--mute);
   color: #777777;
+}
+
+.checkout-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkout-section h2{
+  width: calc(100% - 30px);
+  max-width: 414px;
+}
+
+.cancel-a-link{
+  display: block; 
+  width: calc(100% - 30px);
+  max-width: 414px;
 }
 
 .fw-bold{

@@ -1,3 +1,10 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 export default function Review({orderState}){
 
   function preProcessOrder(rawOrder){
@@ -33,19 +40,21 @@ export default function Review({orderState}){
 
   return (
     <main>
-      <section>
+      <section class="checkout-section">
         <h2>Revise seu pedido</h2>
         <div class="checkout">
           <ul class="order">
             {preProcessedOrder.map(orderLine => JSXifyOrder(orderLine))}
             <li class="order-line">
               <p class="fw-bold">Total</p>
-              <p class="fw-bold">{getTotal(preProcessedOrder)}</p>
+              <p class="fw-bold">R$ {getTotal(preProcessedOrder)}</p>
             </li>
           </ul>
         </div>
         <button class="confirm" onclick="placeOrder()">Tudo certo, pode pedir!</button>
-        <button class="cancel" onclick="dumpOrder()">Cancelar</button>
+        <Link className="cancel-a-link" to="/">
+          <button class="cancel" onclick="dumpOrder()">Cancelar</button>
+        </Link>
       </section>
     </main>
   );
