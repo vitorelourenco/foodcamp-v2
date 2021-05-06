@@ -296,6 +296,7 @@ footer button{
 .checkout-section h2{
   width: calc(100% - 30px);
   max-width: 414px;
+  margin-bottom: 0;
 }
 
 .cancel-a-link{
