@@ -1,6 +1,6 @@
-import MenuRow from "../menu_components/rows";
+import MenuRow from "../../menu_components/rows";
 import Footer from "./footer";
-import allCategories from "../database/menuData";
+import allCategories from "../../database/menuData";
 import React from "react";
 
 export default function Home({ orderState, setOrderState }) {
@@ -16,14 +16,10 @@ export default function Home({ orderState, setOrderState }) {
       return bol && rowFlag;
     }, true);
 
-    //only setOrderStatus if orderStatus and isReady arent matching
     if (isReady !== orderStatus) setOrderStatus(isReady);
 
   }
 
-  //orderStatus only job is to know wether or not the 'Fechar pedido'
-  //button should be displayed. It has nothing to do with orderState
-  //orderSate is a state of <App /> that keeps track of the users choices
   const [orderStatus, setOrderStatus] = React.useState(false);
 
   //Everytime orderState (state of <App />) is updated, the function Home
