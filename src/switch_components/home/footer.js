@@ -12,9 +12,7 @@ export default function Footer({ status }) {
   );
   const classList = status === true ? "bg-green pointer" : "bg-grey";
   const message = status === true ? readyMessage : waitingMessage;
-  const goAhead = () => {
-    return;
-  };
+  const goAhead = () => null;
   const holdOn = (e) => e.preventDefault();
   const managedClick = status === true ? goAhead : holdOn;
 
