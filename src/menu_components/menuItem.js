@@ -1,45 +1,25 @@
 import React from "react";
 import deepCopy from "../general_functions/deepCopy";
 
-export default function MenuItem(props) {
-  const {
-    item,
-    itemIndex,
-    catIndex,
-    setOrderState,
-    orderState,
-  } = props.objConfig;
+export default function MenuItem({ objConfig }) {
+  const { item, itemIndex, catIndex, setOrderState, orderState } = objConfig;
   const { imgsrc, imgalt, name, description, price } = item;
 
-  function handleItemClick() {
-    if (stateItem.amount === 0) {
-      const newState = deepCopy(orderState);
-      newState[catIndex][itemIndex].amount = 1;
-      setOrderState(newState);
-    }
-  }
-
-  function increment(event) {
-    event.stopPropagation();
+  function addToItemState(num) {
     const newState = deepCopy(orderState);
-    newState[catIndex][itemIndex].amount = stateItem.amount + 1;
+    newState[catIndex][itemIndex].amount += num;
     setOrderState(newState);
   }
 
-  function decrement(event) {
-    event.stopPropagation();
-    const newState = deepCopy(orderState);
-    newState[catIndex][itemIndex].amount = stateItem.amount - 1;
-    setOrderState(newState);
-  }
+  const itemAmount = orderState[catIndex][itemIndex].amount;
 
-  const stateItem = orderState[catIndex][itemIndex];
+  const itemClasses = itemAmount > 0 ? "menu-item selected" : "menu-item";
 
-  const articleClasses =
-    stateItem.amount > 0 ? "menu-item selected" : "menu-item";
+  const handleItemClick =
+    itemAmount === 0 ? () => addToItemState(1) : () => null;
 
   return (
-    <article onClick={() => handleItemClick()} className={articleClasses}>
+    <article onClick={handleItemClick} className={itemClasses}>
       <div className="item-wrapper">
         <img src={imgsrc} alt={imgalt} />
         <h3>{name}</h3>
@@ -48,11 +28,11 @@ export default function MenuItem(props) {
       <div className="price-wrapper">
         <p className="unit-price">{price}</p>
         <div className="order-controls">
-          <button className="downButton" onClick={(event) => decrement(event)}>
+          <button className="downButton" onClick={() => addToItemState(-1)}>
             -
           </button>
-          <span className="count">{stateItem.amount}</span>
-          <button className="upButton" onClick={(event) => increment(event)}>
+          <span className="count">{itemAmount}</span>
+          <button className="upButton" onClick={() => addToItemState(1)}>
             +
           </button>
         </div>
