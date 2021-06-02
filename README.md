@@ -15,9 +15,8 @@ React-Foodcamp is a single page application in which the user can choose at leas
 
 ## Instalation
 
-Get the ./src and ./public files from the repo however you prefer and run the following commands
-- create-react-app folder_name --template @bootcamp-ra/cra-template
-- npm install --save react-router-dom
+- git clone https://github.com/vitorelourenco/react-foodcamp.git
+- npm install
 
 ## Preview
 
