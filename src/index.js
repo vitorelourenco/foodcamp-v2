@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import './css/reset.css';
 import './css/styles.css';
-require('dotenv').config()
 const root = document.querySelector(".root");
 
 function App() {
